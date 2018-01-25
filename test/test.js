@@ -8,10 +8,22 @@ let testArray4 = null;
 let testArray5 = undefined;
 
 describe('#sort Function', function(){
+    it('#sort if a function that will return null if null is given', function(){
+        let answer = app.sort(testArray4);
+        expect(answer).to.deep.equal(null);
+    });
     it('#sort is a function that sorts numbers from lowest to highest', function(){
-        expect(sort(testArray1)).to.deep.equal([1, 2, 2, 3, 4, 5, 5, 6, 76])       
+        expect(app.sort(testArray1)).to.deep.equal([1, 2, 2, 3, 4, 5, 5, 6, 76])
     });
     it('#sort is a function that sorts strings with lowercase as higher values',function(){
-        expect(sort(testArray2)).to.deep.equal(["A", "Every", "I", "It", "Mommy", "Now", "The", "The", "action", "are", "asked", "bad", "because", "child", "child", "child", "curious", "dear", "grandmother", "grey", "grey", "grey", "hairs", "hairs", "hairs", "has", "head", "her", "her", "his", "innocently", "is", "know", "mother", "mother", "my", "occasion", "of", "of", "of", "of", "on", "one", "only", "replied", "some", "teach", "this", "to", "to", "tried", "turn", "turning", "use", "why", "why", "will", "you", "your", "yours"])
-    })
+        expect(app.sort(testArray2)).to.deep.equal(["A", "Every", "I", "It", "Mommy", "Now", "The", "The", "action", "are", "asked", "bad", "because", "child", "child", "child", "curious", "dear", "grandmother", "grey", "grey", "grey", "hairs", "hairs", "hairs", "has", "head", "her", "her", "his", "innocently", "is", "know", "mother", "mother", "my", "occasion", "of", "of", "of", "of", "on", "one", "only", "replied", "some", "teach", "this", "to", "to", "tried", "turn", "turning", "use", "why", "why", "will", "you", "your", "yours"])
+    });
+    it('#sort is a function that sorts null as the lowest value', function(){
+        let answer = app.sort(testArray3)[0]
+        expect(answer).to.deep.equal(null);
+    });
+    it('#sort is a function that sorts numbers as a lower value than string', function(){
+        expect(app.sort(testArray3)[3]).to.deep.equal(36);
+    });
+
 });
